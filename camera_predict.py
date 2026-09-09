@@ -19,7 +19,7 @@ model = tf.keras.layers.TFSMLayer(
 
 # Load labels
 with open("labels.txt", "r") as f:
-    labels = [line.strip().split(' ')[1] for line in f.readlines()]
+    labels = [line.strip().split(' ',1)[1] for line in f.readlines()]
 
 cap = cv2.VideoCapture(0)
 
@@ -62,7 +62,7 @@ while True:
 
     cv2.imshow("Hand Sign Detection", frame)
 
-    if cv2.waitKey(1) & 0xFF == 27:
+    if cv2.waitKey(1) & 0xFF == 27: # ESC key to exit 27 asci value of esc
         break
 
 cap.release()
